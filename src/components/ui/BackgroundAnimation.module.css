@@ -1,0 +1,100 @@
+.container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    /* Ensure it stays behind */
+}
+
+/* --- Floating Blobs --- */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: drift 20s infinite ease-in-out alternate;
+    mix-blend-mode: screen;
+    /* Makes colors pop on dark bg */
+}
+
+.blob1 {
+    top: -10%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle at center, #7928CA, #FF0080);
+    animation-delay: -5s;
+}
+
+.blob2 {
+    bottom: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle at center, #4facfe, #00f2fe);
+    animation-delay: -10s;
+}
+
+.blob3 {
+    top: 30%;
+    left: 40%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle at center, #9F44D3, #4B0082);
+    animation-duration: 25s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(10%, 15%) rotate(10deg) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-5%, -10%) rotate(-5deg) scale(0.9);
+    }
+}
+
+/* --- Meteors --- */
+.meteor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    opacity: 0;
+    transform: rotate(-45deg);
+    animation: meteor-fall 4s linear infinite;
+    box-shadow: 0 0 10px 1px rgba(99, 102, 241, 0.5);
+}
+
+.meteor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+@keyframes meteor-fall {
+    0% {
+        opacity: 1;
+        transform: rotate(-45deg) translateX(0);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(-45deg) translateX(-1000px);
+    }
+}

@@ -2,10 +2,11 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
-import { FaLinkedin, FaEnvelope, FaGithub, FaPhone, FaAndroid, FaReact } from "react-icons/fa";
-import { SiFlutter, SiDart, SiKotlin, SiNextdotjs } from "react-icons/si";
+import { FaLinkedin, FaEnvelope, FaPhone, FaAndroid, FaReact } from "react-icons/fa";
+import { SiFlutter, SiDart, SiNextdotjs } from "react-icons/si";
 import styles from "./HeroSection.module.css";
 import { useEffect, useState } from "react";
+import BackgroundAnimation from "../ui/BackgroundAnimation";
 
 const HeroSection = () => {
     const { personal } = portfolioData;
@@ -22,7 +23,7 @@ const HeroSection = () => {
             setCurrentRole((prev) => (prev + 1) % roles.length);
         }, 3000);
         return () => clearInterval(interval);
-    }, []);
+    }, [roles.length]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -42,9 +43,7 @@ const HeroSection = () => {
 
     return (
         <section className={styles.section}>
-            {/* Ambient Background */}
-            <div className={styles.gridBackground} />
-            <div className={styles.glow} />
+            <BackgroundAnimation />
 
             <div className={styles.container}>
                 {/* Content Side */}
@@ -57,12 +56,12 @@ const HeroSection = () => {
                     <motion.div variants={itemVariants} className={styles.badgeContainer}>
                         <div className={styles.badge}>
                             <div className={styles.badgeDot} />
-                            Portfolio 2024
+                            Portfolio 2026
                         </div>
                     </motion.div>
 
                     <motion.span variants={itemVariants} className={styles.greeting}>
-                        Hello, I'm
+                        Hello, I&apos;m
                     </motion.span>
 
                     <motion.h1 variants={itemVariants} className={styles.name}>
@@ -225,9 +224,6 @@ const HeroSection = () => {
         </section>
     );
 };
-
-// Placeholder for user avatar or another icon
-const UserAvatar = () => <div style={{ width: 24, height: 24, background: 'white', borderRadius: '50%' }} />;
 
 const SocialLink = ({ href, icon, delay }: { href: string; icon: React.ReactNode; delay: number }) => (
     <motion.a

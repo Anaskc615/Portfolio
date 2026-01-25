@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
-import { FaLinkedin, FaEnvelope, FaPhone, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import styles from "./ContactSection.module.css";
 
 const ContactSection = () => {
@@ -14,9 +14,9 @@ const ContactSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Let's Connect</h2>
+                    <h2 className={styles.title}>Let&apos;s Connect</h2>
                     <p className={styles.text}>
-                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
                     </p>
 
                     <div className={styles.links}>
