@@ -30,7 +30,10 @@ const ExperienceSection = () => {
                             <div className={styles.dot} />
                             <div className={styles.card}>
                                 <h3 className={styles.role}>{exp.role}</h3>
-                                <div className={styles.company}>{exp.company}</div>
+                                <div className={styles.headerRow}>
+                                    <div className={styles.company}>{exp.company}</div>
+                                    {exp.location && <span className={styles.location}>{exp.location}</span>}
+                                </div>
                                 <span className={styles.period}>{exp.period}</span>
 
                                 <ul className={styles.descList}>

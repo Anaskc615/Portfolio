@@ -106,11 +106,31 @@
     margin-bottom: 0.5rem;
 }
 
+/* Company & Location Row */
+.headerRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .item:nth-child(odd) .headerRow {
+        justify-content: flex-end;
+    }
+}
+
 .company {
     font-size: 1rem;
     color: var(--accent-primary);
-    margin-bottom: 0.25rem;
     font-weight: 600;
+}
+
+.location {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    font-style: italic;
 }
 
 .period {

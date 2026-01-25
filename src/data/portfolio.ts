@@ -3,9 +3,10 @@ export interface Experience {
   company: string;
   role: string;
   period: string;
+  location?: string;
   description: string[];
   technologies?: string[];
-  logo?: string; // Placeholder for now
+  logo?: string;
 }
 
 export interface Project {
@@ -14,7 +15,7 @@ export interface Project {
   category: "Mobile" | "Web" | "Backend";
   description: string;
   technologies: string[];
-  link?: string;
+  links?: { url: string; label: string }[];
   image?: string;
 }
 
@@ -26,6 +27,7 @@ export interface PortfolioData {
     phone: string;
     linkedin: string;
     summary: string;
+    location?: string;
   };
   skills: string[];
   experience: Experience[];
@@ -33,81 +35,85 @@ export interface PortfolioData {
     institution: string;
     period: string;
     degree?: string;
+    location?: string;
   }[];
-  projects: Project[]; // Derived from experience description or separate
+  projects: Project[];
 }
 
 export const portfolioData: PortfolioData = {
   personal: {
     name: "Anas KC",
-    role: "Flutter Developer",
+    role: "Flutter Developer / Frontend Engineer",
     email: "anuanas615@gmail.com",
     phone: "+974 77180425",
     linkedin: "https://www.linkedin.com/in/anas-kc-887bbb190",
     summary:
-      "With over five years of dedicated experience as an Android & Flutter Developer, I specialize in the creation and maintenance of scalable, user-centric mobile applications. My skill set is extensive, encompassing programming languages such as Kotlin, Java, Dart, Javascript and GoLang. I am well-versed in microservices frontend architecture and excel in incorporating adept third-party integrations, as well as developing real-time applications.",
+      "Senior Flutter Developer with 5+ years of experience delivering scalable mobile applications for iOS and Android, with expertise in BLoC/Riverpod, MVVM/DDD, real-time apps, REST/WebSockets, push notifications, and payment integrations. Additionally, experience in Next.js for web applications (SSR, SSG, dynamic routing, SEO). Proficient in CI/CD, Agile delivery, and growing skills in backend, cloud, DevOps, and AI integrations.",
+    location: "Doha, Qatar",
   },
   skills: [
-    "Android",
-    "Java",
-    "Kotlin",
     "Flutter (Dart)",
-    "React.js",
+    "Android (Java/Kotlin)",
     "Next.js",
-    "SQL",
+    "React.js",
+    "BLoC/Riverpod",
     "Clean Architecture",
-    "MVVM",
-    "Bloc/Riverpod",
+    "MVVM/DDD",
+    "Payment Integrations",
+    "SQL",
+    "CI/CD",
     "Microservices",
-    "DevOps",
   ],
   experience: [
     {
-      id: "family-food-center",
-      company: "Family Food Center",
-      role: "Software Developer",
-      period: "Jan 2024 — Current",
+      id: "family-holdings",
+      company: "Family Holdings",
+      role: "Frontend Engineer",
+      period: "Jan 2024 – Current",
+      location: "Doha, Qatar",
       description: [
-        "Developed and maintained cross-platform applications for iOS and Android, enhancing the online shopping experience for Family Qatar's supermarket chain.",
-        "Designed and implemented robust Flutter architectures using BLoC/Riverpod, improving app scalability.",
-        "Implemented features to streamline stock ordering processes in Order Plus.",
-        "Engineered a driver-specific delivery management tool, Q-Drive.",
-        "Contributed to ERConnect Pro (HRMS) solution.",
-        "Played a key role in the development of the ALYOUMI App.",
-        "Developed Family Qatar Grocery App in Next.js.",
+        "Developed and maintained cross-platform mobile applications for iOS and Android, enhancing the online shopping experience for Family Qatar’s hypermarket chain.",
+        "Designed and implemented robust Flutter architectures using BLoC and Riverpod, improving scalability, testability, and long-term maintainability.",
+        "Built a feature-rich e-commerce web application using Next.js, leveraging Server-Side Rendering (SSR), Static Generation, dynamic routing, SEO optimization, and performance best practices.",
+        "Implemented real-time communication using WebSockets for live order updates and notifications.",
+        "Integrated secure payment gateways including CyberSource, QPay, and Apple Pay, ensuring smooth, reliable, and compliant checkout flows.",
       ],
-      technologies: ["Flutter", "Next.js", "BLoC", "Riverpod", "iOS", "Android"],
+      technologies: ["Flutter", "Next.js", "BLoC", "Riverpod", "WebSockets", "Payment Gateways"],
     },
     {
       id: "foodbell",
       company: "Foodbell",
       role: "Mobile Application Developer",
-      period: "Feb 2022 — Dec 2023",
+      period: "Feb 2022 – Dec 2023",
+      location: "Dubai, UAE",
       description: [
-        "Developed and maintained the Foodbell e-commerce app using native Android and Flutter.",
-        "Implemented features for the Foodbell Restaurant App on Android.",
-        "Worked on Market2Home - Ecommerce grocery delivery app.",
+        "Developed and maintained the Foodbell e-commerce app using native Android and Flutter for both iOS and Android platforms.",
+        "Implemented features for the Foodbell Restaurant App on Android, enabling restaurants to efficiently manage online orders.",
+        "Ensured a seamless shopping experience for users across multiple platforms.",
       ],
-      technologies: ["Android", "Flutter", "E-commerce"],
+      technologies: ["Flutter", "Android", "E-commerce"],
     },
     {
       id: "thoughtbox",
-      company: "ThoughtBox",
+      company: "Thought Box",
       role: "Mobile Application Developer",
-      period: "Jan 2019 — Oct 2021",
+      period: "Jan 2019 – Oct 2021",
+      location: "Kerala, India",
       description: [
-        "Development of Android applications using Kotlin, MVVM, Retrofit, and Jetpack components.",
-        "Refactored legacy codebase to Kotlin.",
-        "Integrated REST and gRPC APIs with real-time socket features.",
-        "Published and maintained apps on Play Store (AL JADEED Exchange, HAMDAN HEXPAY).",
+        "Gained hands-on experience in mobile application development by working with a large-scale fintech mobile app team.",
+        "Developed and maintained Android applications using Kotlin, following MVVM architecture.",
+        "Refactored legacy Android codebase to Kotlin, improving performance, readability, and long-term maintainability.",
+        "Integrated REST and gRPC APIs, along with real-time socket-based communication.",
+        "Collaborated closely with cross-functional teams (product, backend, QA) in an Agile development environment.",
       ],
-      technologies: ["Kotlin", "MVVM", "Retrofit", "Jetpack", "gRPC", "Real-time Sockets"],
+      technologies: ["Kotlin", "MVVM", "gRPC", "Socket.io", "Fintech"],
     },
   ],
   education: [
     {
-      institution: "MES Ponnani College, Malappuram, Kerala",
-      period: "2017 — 2019",
+      institution: "MES Ponnani College",
+      period: "2017 – 2019",
+      location: "Malappuram, Kerala",
     },
     {
       institution: "SSMVHSS Edakkazhiyoor",
@@ -116,11 +122,74 @@ export const portfolioData: PortfolioData = {
   ],
   projects: [
     {
-      id: "family-qatar-app",
-      title: "Family Qatar - Grocery App",
+      id: "family-qatar-nextjs",
+      title: "Family Qatar (Next.js)",
+      category: "Web",
+      description: "A high-performance e-commerce web application built with Next.js, featuring SSR, dynamic routing, and SEO optimization.",
+      technologies: ["Next.js", "React", "SSR", "Tailwind"],
+      links: [
+        { url: "https://test-ecom-v2.family.qa/", label: "Live Web" },
+      ],
+    },
+    {
+      id: "family-qatar-flutter",
+      title: "Family Qatar (Flutter)",
       category: "Mobile",
-      description: "Online shopping app for a SKU supermarket chain in Qatar.",
-      technologies: ["iOS", "Android", "Web"],
+      description: "Cross-platform mobile application for iOS and Android, with web support. Features BLoC state management and real-time updates.",
+      technologies: ["Flutter", "Dart", "Android", "iOS"],
+      links: [
+        { url: "https://interim-atxpview-ecom-v2.family.qa/", label: "Web Preview" },
+      ],
+    },
+    {
+      id: "er-connect-pro",
+      title: "ER Connect Pro",
+      category: "Mobile",
+      description: "HRMS solution with features like payslips, leave management, team access, and announcements.",
+      technologies: ["Flutter", "HRMS"],
+      links: [
+        { url: "https://apps.apple.com/in/app/erconnect-pro/id6451446336", label: "App Store" },
+      ],
+    },
+    {
+      id: "alyoumi",
+      title: "Alyoumi",
+      category: "Mobile",
+      description: "Loyalty program launched by Retail Mart, allowing customers to earn, track, and redeem points.",
+      technologies: ["Flutter", "Loyalty"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.alyoumi.app&hl=en", label: "Play Store" },
+      ],
+    },
+    {
+      id: "q-drive",
+      title: "Q-Drive",
+      category: "Mobile",
+      description: "Driver-specific delivery management tool for B2B order fulfillment.",
+      technologies: ["Mobile", "Logistics"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.ffc.qdrive&hl=en_US", label: "Play Store" },
+      ],
+    },
+    {
+      id: "q-daily",
+      title: "Q-Daily",
+      category: "Mobile",
+      description: "B2B order management tool designed for optimized purchasing workflows.",
+      technologies: ["Mobile", "B2B"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.ffc.qdaily&hl=en_US", label: "Play Store" },
+      ],
+    },
+    {
+      id: "qserve",
+      title: "Qserve",
+      category: "Mobile",
+      description: "Integrated solution to streamline operations for waitstaff and administrators at restaurants.",
+      technologies: ["Mobile", "Hospitality"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.ffc.qserve&hl=en_US", label: "Play Store" },
+      ],
     },
     {
       id: "order-plus",
@@ -130,33 +199,44 @@ export const portfolioData: PortfolioData = {
       technologies: ["iOS", "Android"],
     },
     {
-      id: "q-drive",
-      title: "Q-Drive",
-      category: "Mobile",
-      description: "Driver-specific delivery management tool for B2B order fulfillment.",
-      technologies: ["iOS", "Android"],
-    },
-    {
-      id: "er-connect-pro",
-      title: "ERConnect Pro",
-      category: "Mobile",
-      description:
-        "HRMS solution with features like payslips, leave management, team access, and announcements.",
-      technologies: ["iOS", "Android"],
-    },
-    {
       id: "foodbell-app",
       title: "Foodbell",
       category: "Mobile",
       description: "Ecommerce food delivery app.",
-      technologies: ["Flutter", "Android"],
+      technologies: ["Flutter", "Food Delivery"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.foodbellryk.foodbell&hl=en", label: "Play Store" },
+      ],
     },
     {
-      id: "al-jadeed",
-      title: "AL JADEED Exchange App",
+      id: "foodbell-restaurant",
+      title: "Foodbell Restaurant",
       category: "Mobile",
-      description: "Mobile remittance app.",
-      technologies: ["Kotlin", "Android"],
+      description: "Ecommerce order receiving app for restaurants.",
+      technologies: ["Android", "Restaurant"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=com.foodbellryk.foodbell_restaurant&hl=en", label: "Play Store" },
+      ],
+    },
+    {
+      id: "unimoni",
+      title: "Unimoni",
+      category: "Mobile",
+      description: "Secure fintech mobile application enabling international money transfers.",
+      technologies: ["Android", "Fintech"],
+      links: [
+        { url: "https://play.google.com/store/apps/details?id=io.thoughtbox.unimoni&hl=en", label: "Play Store" },
+      ],
+    },
+    {
+      id: "hamdan-hexpay",
+      title: "Hamdan HEXPAY",
+      category: "Mobile",
+      description: "Easy and quick bank transfer and Faster Cash pickup facilities.",
+      technologies: ["Android", "Fintech"],
+      links: [
+        { url: "https://play.google.com/store/search?q=hexpay&c=apps&hl=en_US", label: "Play Store" },
+      ],
     },
   ],
 };
