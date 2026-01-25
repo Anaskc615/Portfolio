@@ -134,9 +134,9 @@ export const portfolioData: PortfolioData = {
     {
       id: "family-qatar-flutter",
       title: "Family Qatar (Flutter)",
-      category: "Mobile",
+      category: "Web",
       description: "Cross-platform mobile application for iOS and Android, with web support. Features BLoC state management and real-time updates.",
-      technologies: ["Flutter", "Dart", "Android", "iOS"],
+      technologies: ["Flutter", "Dart", "Android", "iOS", "Web"],
       links: [
         { url: "https://interim-atxpview-ecom-v2.family.qa/", label: "Web Preview" },
       ],
